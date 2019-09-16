@@ -8,7 +8,7 @@ A Grails website where user can register, login and logout. Admins can directly 
 <p>4. Now Open the project. It will automatically import it's all gradle dependencies.</p>
 <p>5. Go to the terminal and run command  grails run-app</p>
 <p>4. If it runs successfully then go to your web browser and copy and paste http://localhost:8080 as url</p>
-
-
+<br>
+<p><b>FOR ADMIN LOGIN</b></p>
 <p><b>Admin Email : admin@localhost.local</b></p>
 <p><b>Admin Password : admin</b></p>
