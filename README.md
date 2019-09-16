@@ -1,5 +1,5 @@
 # user_information_grails_app
-A Grails website where user can register, login and logout. Admins can directly login and can see all of the user lists.
+A website where user can register, login and logout. Admins can directly login and can see all of the user lists. It was developed using the framework called Grails.
 
 <p><b>To Run User Information Grails App -</b></p>
 <p>1. clone / download the project.</p>
