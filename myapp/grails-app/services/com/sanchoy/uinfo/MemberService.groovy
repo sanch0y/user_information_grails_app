@@ -56,15 +56,4 @@ class MemberService {
         }
         return [list: memberList, count: Member.count()]
     }
-
-
-    def delete(Member member) {
-        try {
-            member.delete(flush: true)
-        } catch (Exception e) {
-            println(e.getMessage())
-            return false
-        }
-        return true
-    }
 }

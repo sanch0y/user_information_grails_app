@@ -1,5 +1,8 @@
 package com.sanchoy.uinfo
 
+/**
+ * Created by HP on 9/7/2019.
+ */
 class MemberController {
 
     MemberService memberService
@@ -59,16 +62,6 @@ class MemberController {
             }else{
                 redirect(controller: "member", action: "index")
             }
-        }
-    }
-
-    def delete(Integer id) {
-        def response = memberService.getById(id)
-        if (!response){
-            redirect(controller: "member", action: "index")
-        }else{
-            response = memberService.delete(response)
-            redirect(controller: "member", action: "index")
         }
     }
 

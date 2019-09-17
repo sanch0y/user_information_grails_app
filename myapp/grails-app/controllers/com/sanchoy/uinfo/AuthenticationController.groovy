@@ -1,5 +1,8 @@
 package com.sanchoy.uinfo
 
+/**
+ * Created by HP on 9/7/2019.
+ */
 class AuthenticationController {
 
     AuthenticationService authenticationService
@@ -17,7 +20,6 @@ class AuthenticationController {
         if (authenticationService.doLogin(params.email, params.password)) {
             redirect(controller: "dashboard", action: "index")
         } else {
-            flash.message = AppUtil.infoMessage("Email Address or Password not Valid.", false)
             redirect(controller: "authentication", action: "login")
         }
     }
