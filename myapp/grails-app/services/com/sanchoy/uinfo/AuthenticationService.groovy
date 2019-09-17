@@ -50,6 +50,14 @@ class AuthenticationService {
         return false
     }
 
+    def checkPassword(String password) {
+        password = password.encodeAsMD5()
+        Member member = Member.findByPassword(password)
+        if (member) {
+            return true
+        }
+        return false
+    }
 
     def isAdministratorMember() {
         def member = getMember()

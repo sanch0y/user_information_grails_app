@@ -28,6 +28,34 @@ class AuthenticationController {
         redirect(controller: "authentication", action: "login")
     }
 
+
+    def changePassword(){
+        if (authenticationService.isAuthenticated()) {
+            def response = memberService.getById(authenticationService.getCurrentMemberId())
+            [member: response]
+        }
+    }
+
+    def doChangePassword(){
+        def response = memberService.getById(params.id)
+        if (!response){
+            redirect(controller: "authentication", action: "changePassword")
+        }else{
+            if(authenticationService.checkPassword(params.oldPassword)){
+                response = memberService.update(response, params)
+                if (!response.isSuccess){
+                    flash.redirectParams = response.model
+                    redirect(controller: "authentication", action: "changePassword")
+                }else{
+                    redirect(controller: "member", action: "index")
+                }
+            }else {
+                redirect(controller: "authentication", action: "changePassword")
+            }
+        }
+    }
+
+
     def registration() {
         [member: flash.redirectParams]
     }
