@@ -27,6 +27,11 @@ class Member {
         age(nullable: true)
     }
 
+    static mapping = {
+        table("user")
+        version(false)
+    }
+
     def beforeInsert (){
         this.password = this.password.encodeAsMD5()
     }
