@@ -22,12 +22,6 @@
                     </div>
                 </g:form>
             </div>
-
-            %{--Create and Reload Panel--}%
-            <div class="btn-group">
-                <g:link controller="member" action="create" class="btn btn-success"><g:message code="create"/></g:link>
-                <g:link controller="member" action="index" class="btn btn-primary"><g:message code="reload"/></g:link>
-            </div>
         %{--</span>--}%
     </div>
 
@@ -41,7 +35,6 @@
                 <g:sortableColumn property="age" title="${g.message(code: "age")}"/>
                 <g:sortableColumn property="email" title="${g.message(code: "email")}"/>
                 <g:sortableColumn property="phone" title="${g.message(code: "phone")}"/>
-                <th class="action-row"><g:message code="action"/></th>
             </tr>
             </thead>
             <tbody>
@@ -49,24 +42,9 @@
                 <tr>
                     <td>${info?.firstName}</td>
                     <td>${info?.lastName}</td>
-                    <td>${info?.birthDate}</td>
+                    <td>${info?.age}</td>
                     <td>${info?.email}</td>
                     <td>${info?.phone}</td>
-
-                    %{--Table Actions --}%
-                    <td>
-                        <div class="btn-group">
-                            <div style="padding: 1px 1px 1px 1px">
-                                <g:link controller="member" action="details" class="btn btn-secondary" id="${info.id}"><i class="fas fa-eye"></i></g:link>
-                            </div>
-                            <div style="padding: 1px 1px 1px 1px">
-                                <g:link controller="member" action="edit" class="btn btn-secondary" id="${info.id}"><i class="fas fa-edit"></i></g:link>
-                            </div>
-                            <div style="padding: 1px 1px 1px 1px">
-                                <g:link controller="member" action="delete" id="${info.id}" class="btn btn-secondary delete-confirmation"><i class="fas fa-trash"></i></g:link>
-                            </div>
-                        </div>
-                    </td>
                 </tr>
             </g:each>
             </tbody>

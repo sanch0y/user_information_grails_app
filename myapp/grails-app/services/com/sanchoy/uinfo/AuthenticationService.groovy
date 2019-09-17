@@ -50,11 +50,15 @@ class AuthenticationService {
         return false
     }
 
-    def checkPassword(String password) {
-        password = password.encodeAsMD5()
-        Member member = Member.findByPassword(password)
-        if (member) {
-            return true
+    def checkPassword(String oldPassword, String newPassword, String confirmNewPassword) {
+        oldPassword = oldPassword.encodeAsMD5()
+        newPassword = confirmNewPassword.encodeAsMD5()
+        confirmNewPassword = confirmNewPassword.encodeAsMD5()
+        if(newPassword.equals(confirmNewPassword)){
+            Member member = Member.findByPassword(oldPassword)
+            if (member) {
+                return true
+            }
         }
         return false
     }

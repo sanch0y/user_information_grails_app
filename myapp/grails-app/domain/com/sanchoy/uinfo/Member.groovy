@@ -11,6 +11,7 @@ class Member {
     String address
     String phone
     Date birthDate
+    Long age
     String email
     String password
     String memberType = GlobalConfig.USER_TYPE.REGULAR_MEMBER
@@ -23,6 +24,7 @@ class Member {
         address(nullable: true)
         phone(nullable: true)
         birthDate(nullable: true)
+        age(nullable: true)
     }
 
     def beforeInsert (){

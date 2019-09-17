@@ -41,7 +41,7 @@ class AuthenticationController {
         if (!response){
             redirect(controller: "authentication", action: "changePassword")
         }else{
-            if(authenticationService.checkPassword(params.oldPassword)){
+            if(authenticationService.checkPassword(params.oldPassword, params.password, params.confirmNewPassword)){
                 response = memberService.update(response, params)
                 if (!response.isSuccess){
                     flash.redirectParams = response.model
@@ -55,11 +55,9 @@ class AuthenticationController {
         }
     }
 
-
     def registration() {
         [member: flash.redirectParams]
     }
-
 
     def doRegistration() {
         def response = memberService.save(params)

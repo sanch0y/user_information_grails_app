@@ -2,10 +2,19 @@ package com.sanchoy.uinfo
 
 import grails.web.servlet.mvc.GrailsParameterMap
 
+import java.util.concurrent.TimeUnit
+
 class MemberService {
 
     def save(GrailsParameterMap params) {
+        long current = System.currentTimeMillis()//
+        Date birthDate = params.birthDate
+        long difference = current - birthDate.getTime()
+        long years = TimeUnit.DAYS.convert(difference, TimeUnit.MILLISECONDS)/365;
+
         Member member = new Member(params)
+        member.age = years
+
         def response = AppUtil.saveResponse(false, member)
         if (member.validate()) {
             member.save(flush: true)

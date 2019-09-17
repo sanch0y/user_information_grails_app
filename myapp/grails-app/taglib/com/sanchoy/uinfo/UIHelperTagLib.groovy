@@ -21,6 +21,8 @@ class UIHelperTagLib {
 
         if(authenticationService.isAdministratorMember()){
             navigations.add([controller: "member", action: "index", name: "memberlist"])
+        }else{
+            navigations.add([controller: "authentication", action: "changePassword", name: "change.password"])
         }
 
         navigations.each { menu ->
