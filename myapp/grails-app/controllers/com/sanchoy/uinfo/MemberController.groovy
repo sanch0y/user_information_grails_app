@@ -26,12 +26,18 @@ class MemberController {
     }
 
     def save() {
-        def response = memberService.save(params)
-        if (!response.isSuccess) {
-            flash.redirectParams = response.model
-            redirect(controller: "member", action: "create")
-        }else{
-            redirect(controller: "member", action: "index")
+        Member member = Member.findByEmail(params.email)
+        if(member){
+            flash.message = AppUtil.infoMessage("Duplicate Email", false)
+        }else {
+            def response = memberService.save(params)
+            if (!response.isSuccess) {
+                flash.redirectParams = response.model
+                flash.message = AppUtil.infoMessage("Duplicate Email", false)
+                redirect(controller: "member", action: "create")
+            }else{
+                redirect(controller: "member", action: "index")
+            }
         }
     }
 

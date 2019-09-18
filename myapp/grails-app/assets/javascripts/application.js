@@ -6,7 +6,9 @@
 // to create separate JavaScript files as needed.
 //
 //= require jquery-3.3.1.min
+//= require jquery
 //= require bootstrap
 //= require popper.min
 //= require user_info
+//= require user_info.message.box
 //= require_self
